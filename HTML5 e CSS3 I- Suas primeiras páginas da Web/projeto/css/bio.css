@@ -1,0 +1,19 @@
+
+.recomendacao{
+	background-color: #D9E5E3;
+	border: 10px solid #C2CCCA;
+	width: 250px;
+	box-sizing: border-box;
+	margin: 20px 40px;
+	padding: 20px;
+}
+.recomendacao cite{
+	font-style: italic;
+	float: right;
+}
+.fiat{
+	float: right;
+}
+.petrobras{
+	float: left;
+}

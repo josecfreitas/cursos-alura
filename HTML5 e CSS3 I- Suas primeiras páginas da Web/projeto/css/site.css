@@ -1,0 +1,107 @@
+body{
+	font-family: "Crimson Text", "Times New Roman", serif;
+	background-color: #F2FFFC;
+	font-size: 120%;
+	line-height: 1.5;
+}
+h1, h2{
+	font-family: "Open Sans Condensed", "Arial", sans-serif;
+}
+.titulo{
+	text-align: center;
+	color: #FFF;
+	background-color: #851944;
+	padding: 25px;
+	border-bottom: 10px solid #000;
+	margin: 0;
+	font-size: 60px;
+	text-transform: uppercase;
+}
+main{
+	float: left;
+	width: 85%;
+	padding-bottom: 100px;
+}
+main h2{
+	font-size: 30px;
+	clear: both;
+}
+main a{
+	color: #851944;
+}
+p{
+	text-align: justify;
+	margin: 20px 0;
+}
+main .conteudo{
+	width: 720px;
+	margin: auto;
+	padding: 30px 0;
+}
+.foto-joao-da-silva, .navegacao{
+	float:right;
+	box-sizing: border-box;
+}
+.foto-joao-da-silva{
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-bottom: 10px solid #000;
+	border-left: 10px solid #000;
+}
+.navegacao{
+	background-color: #3C1D3D;
+	color: #F2FFFC;
+	text-align: center;
+	width: 15%;
+	position: relative;
+	top: 310px;
+	border-bottom: 10px solid #000;
+	border-left: 10px solid #000;
+}
+.navegacao a{
+	color: inherit;
+	font-family: "Open Sans Condensed", "Arial", sans-serif;
+	text-transform: lowercase;
+}
+.navegacao h1{
+	font-size: 30px;
+	margin-bottom: 25px;
+}
+.icone-rede-social li{
+	display: inline-block;
+}
+.icone-rede-social a{
+	display: block;
+	width: 40px;
+	height: 40px;
+	text-indent: -9999px;
+}
+.icone-rede-social .github{
+	background-image: url(../img/github.png);
+}
+.icone-rede-social .twitter{
+	background-image: url(../img/twitter.png);
+}
+.icone-rede-social .linkedin{
+	background-image: url(../img/linkedin.png);
+}
+.pagina-rodape{
+	background-color: #000;
+	color: #F2FFFC;
+	clear: both;
+}
+.navegacao, footer{
+	padding: 20px;
+}
+footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+strong{
+	font-weight: bold;
+}
+em{
+	font-style: italic;
+}
