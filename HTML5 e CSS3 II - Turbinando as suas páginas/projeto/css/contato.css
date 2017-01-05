@@ -1,0 +1,77 @@
+legend, label[for="msg"]{
+	font-weight: bold;
+	margin-top: 1em;
+}
+label[for]{
+	display: block;
+}
+input[type="text"], input[type="email"], form > textarea{
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: .25em .5em;
+	font-family: inherit;
+	font-size: 100%;
+	box-sizing: border-box;
+}
+fieldset > fieldset {
+    display: inline;
+}
+label[for="outro"] {
+    display: inline;
+}
+input[name="outro-assunto"] {
+    width: auto;
+    display: none;
+}
+input[id="outro"]:checked ~ input[name="outro-assunto"] {
+    display: inline;
+}
+input:focus, textarea:focus{
+	background-color: #FFD;
+}
+input:invalid, textarea:invalid{
+	box-shadow: 0 0 3px red;
+}
+button {
+    border: 0;
+    padding: .5em 1em;
+    font-family: "Open Sans Condensed", sans-serif;
+    background-color: #3C1D3D;
+    color: white;
+    font-size: 1.2em;
+
+    display: block;
+    margin-left: auto;
+    margin-top: 1em;
+}
+button:focus,
+button:hover{
+	background-color: #8C1D3D;
+}
+.com-icone{
+    position: relative;
+}
+.com-icone::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #8C1D3D;
+    background-image: url(../imagens/usuario.png);
+    background-position: center center;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    width: 2em;
+    height: 2em;
+}
+.com-icone + input{
+    position: relative;
+    left: 2em;
+    width: calc(100% - 2em);
+}
+label[for="nome"]::after{
+    background-image: url(../imagens/usuario.png);
+}
+label[for="email"]::after{
+    background-image: url(../imagens/email.png);
+}

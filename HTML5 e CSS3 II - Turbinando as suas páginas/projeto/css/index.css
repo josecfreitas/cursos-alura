@@ -1,0 +1,267 @@
+html, body{
+    height: 100%;
+    overflow-x: hidden;
+}
+body {
+    perspective: 6px;
+    perspective-origin: 50% 160px;
+}
+.palavras-home, .titulo-principal {
+    transform-style: preserve-3d;
+}
+.titulo-principal{
+    position: relative;
+}
+.foto-home {
+    height: 200px;
+    border-radius: 10% 50% / 50% 10%;
+}
+.saudacao p {
+    font-size: 1.5em;
+    color: #99A;
+    line-height: 1;
+    padding: 2em;
+}
+.saudacao-inicio {
+    color: #889;
+    font-size: 3em;
+}
+.saudacao-ultima-linha {
+    text-align: right;
+    display: block;
+}
+.saudacao strong {
+    color: #000;
+    font-size: 2em;
+}
+.saudacao em {
+    color: #851944;
+    font-size: 4em;
+    display: inline-block;
+    transform: rotate(-5deg) skew(-10deg);
+}
+.banner-twitter{
+    width: 14em;
+    padding: 1em 0;
+    box-sizing: border-box;
+
+    text-align: center;
+    background-color: #3C1D3D;
+    color: #FFF;
+    text-decoration: none;
+    border: .25em solid #000;
+
+    line-height: 1;
+    font-size: 1.2em;
+    font-family: "Open Sans Condensed", "Arial", sans-serif;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-origin: 0 0;
+    transform: translate(calc(.707*(3.5em - 100%) + 100%), calc(-.707*3.5em)) rotate(45deg);
+}
+.palavras-home{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.palavras-home li{
+    font-size: 400%;
+}
+.palavra-home {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: bold;
+    color: rgba(255, 127, 127, .5);
+    position: absolute;
+}
+.eficiencia {
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%) translateZ(4px) rotate(-5deg) scale(.25);
+    opacity: 1;
+}
+
+.boas-praticas {
+    top: 70%;
+    left: 20%;
+    transform: translate(-50%, -50%) translateZ(1px) rotate(10deg) scale(.25);
+    opacity: .3;
+}
+
+.codigo-limpo {
+    top: 45%;
+    left: 25%;
+    transform: translate(-50%, -50%) translateZ(2px) rotate(-10deg) scale(.25);
+    opacity: .6;
+}
+
+.css3 {
+    top: 55%;
+    left: 35%;
+    transform: translate(-50%, -50%) translateZ(2px) rotate(5deg) scale(.25);
+    opacity: .6;
+}
+
+.html5 {
+    top: 30%;
+    left: 65%;
+    transform: translate(-50%, -50%) translateZ(2px) rotate(10deg) scale(.25);
+    opacity: .6;
+}
+
+.javascript {
+    top: 15%;
+    left: 60%;
+    transform: translate(-50%, -50%) translateZ(1px) rotate(-5deg) scale(.25);
+    opacity: .3;
+}
+
+.acessibilidade {
+    top: 30%;
+    left: 35%;
+    transform: translate(-50%, -50%) translateZ(3px) rotate(-5deg) scale(.25);
+    opacity: .8;
+}
+
+.responsivo {
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%) translateZ(3px) rotate(10deg) scale(.25);
+    opacity: .8;
+}
+
+.otimizacoes {
+    top: 70%;
+    left: 65%;
+    transform: translate(-50%, -50%) translateZ(2px) rotate(-5deg) scale(.25);
+    opacity: .6;
+}
+
+.agilidade {
+    top: 75%;
+    left: 35%;
+    transform: translate(-50%, -50%) translateZ(1px) rotate(5deg) scale(.25);
+    opacity: .3;
+}
+
+.design {
+    top: 40%;
+    left: 60%;
+    transform: translate(-50%, -50%) translateZ(2px) rotate(10deg) scale(.25);
+    opacity: .6;
+}
+.botao-index {
+    font-size: 1.25em;
+    background-color: #851944;
+    color: #FFF;
+    border: .2em solid black;
+    width: 40ch;
+    display: block;
+    text-align: center;
+    margin: 2em auto;
+    padding: .5em;
+}
+.secao-inicio{
+    padding: 2em;
+}
+.secao-inicio h2 {
+    text-transform: uppercase;
+    font-size: 3em;
+    text-shadow: 2px 2px #000;
+}
+.trabalhos {
+    background-color: #3C1D3D;
+    border-top: .5em solid #000;
+    border-bottom: .5em solid #000;
+
+    background-image: linear-gradient(
+        135deg, 
+        transparent, 
+        transparent 14px, 
+        rgba(0, 0, 0, 0.1) 14px, 
+        rgba(0, 0, 0, 0.1) 15px, 
+        transparent 15px, 
+        transparent);
+    background-size: 20px 20px;
+    background-attachment: fixed;
+}
+.trabalhos h2 {
+    color: #FFF;
+}
+.trabalhos ul {
+    overflow: hidden;
+    border: .5em solid black;
+}
+.trabalhos li {
+    float: left;
+    width: 33.333%;
+}
+.trabalhos img {
+    width: 100%;
+    display: block;
+}
+.blog {
+    background-color: #999;
+    color: #FFF;
+    border-bottom: .5em solid #851944;
+    position: relative;
+
+    
+    background-image: linear-gradient(45deg,
+                        transparent,
+                        transparent 14px,
+                        rgba(255, 255, 255, 0.1) 14px,
+                        rgba(255, 255, 255, 0.1) 15px,
+                        transparent 15px,
+                        transparent);
+    background-size: 20px 20px;
+    background-attachment: fixed;
+}
+.blog .inicio-post{
+    position: absolute;
+    top: 4em;
+    left: 30%;
+    right: 4em;
+    padding: 1.5em;
+    background-color: #F2FFFC;
+    color: #000;
+    height: 8em;
+    display: none;
+}
+.blog a:hover + .inicio-post, .blog a:focus + .inicio-post {
+    display: block;
+}
+.blog a:hover, .blog a:focus{
+    background-color: #F2FFFC;
+    width: 30%;
+    color: #F26;
+}
+.blog small{
+    position: relative;
+    top: -2em;
+    font-size: .8em;
+}
+.blog li a {
+    color: #FCF;
+    display: block;
+    padding: .5em;
+}
+footer {
+    background-color: #000;
+    color: #FFF;
+    padding: 2em;
+}
+footer h2{
+    font-size: 2em;
+}
+footer a {
+    color: #F99;
+}
+main {
+    width: 100%;
+    padding-bottom: 0;
+    float: none;
+}

@@ -1,0 +1,180 @@
+body {
+    font-family: "Crimson Text", "Times New Roman", serif;
+    background-color: #F2FFFC;
+    line-height: 1.5;
+    font-size: 120%;
+}
+
+h1,
+h2,
+.subtitulo-principal {
+    font-family: "Open Sans Condensed", "Arial", sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 300%;
+    text-shadow: 2px 2px #000;
+}
+
+.titulo-principal {
+    text-align: center;
+    background-color: #851944;
+    color: #FFF;
+    padding: .1667em;
+    border-bottom: .1667em solid #000;
+}
+
+.subtitulo-texto {
+    font-size: 150%;
+    clear: both;
+}
+
+main a {
+    color: #851944;
+}
+
+main a:hover, main a:focus,
+footer a:hover, footer a:focus{
+    color: #FF0000
+}
+
+main p {
+    text-align: justify;
+    margin: 1em 0;
+}
+
+.navegacao-site {
+    text-align: center;
+    background-color: #3C1D3D;
+    color: #F2FFFC;
+    padding: 1em;
+}
+
+.navegacao-site a {
+    color: inherit;
+    font-family: "Open Sans Condensed", "Arial", sans-serif;
+    text-transform: lowercase;
+}
+
+.navegacao-site a:hover, .navegacao-site a:focus{
+    text-shadow: 0 0 2px pink;
+}
+
+.navegacao-site h1 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.rodape-pagina {
+    color: #F2FFFC;
+    padding: 1em;
+    clear: both;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    background-size: 25% 100%;
+    background-repeat: no-repeat;
+
+    background-image: radial-gradient(ellipse at bottom left, 
+    rgba(60, 29, 61, 0.8),
+    rgba(60, 29, 61, 0.8) 65%,
+    black 65%,
+    black 70%,
+    transparent 70%,
+    transparent);
+}
+
+.container {
+    width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 0;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+.icones-redes-sociais li {
+    display: inline-block;
+}
+
+.icones-redes-sociais a {
+    width: 40px;
+    height: 40px;
+    display: block;
+    text-indent: -99999px;
+    position: relative;
+}
+
+.github {
+    background-image: url(../imagens/github.png);
+}
+
+.twitter {
+    background-image: url(../imagens/twitter.png);
+}
+
+.linkedin {
+    background-image: url(../imagens/linkedin.png);
+}
+
+main {
+    width: calc(100% - .9*300px);
+    float: left;
+    padding-bottom: 4em;
+}
+
+.minha-foto,
+.navegacao-site {
+    border-left: .5em solid black;
+    border-bottom: .5em solid black;
+    box-sizing: border-box;
+}
+
+.navegacao-site {
+    width: calc(.9*300px);
+    float: right;
+    position: relative;
+    top: 300px;
+}
+
+.icones-redes-sociais a:hover::after,
+.icones-redes-sociais a:focus::after{
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    text-indent: 0;
+    width: 300%;
+    background-color: #000;
+    font-size: .75em;
+    z-index: 9999;
+}
+
+.icones-redes-sociais a:hover::before,
+.icones-redes-sociais a:focus::before{
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(.5em) translateX(50%) rotate(45deg);
+}
+
+.minha-foto {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 300px;
+}
