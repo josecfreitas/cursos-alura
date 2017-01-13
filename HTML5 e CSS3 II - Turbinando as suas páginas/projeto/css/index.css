@@ -1,10 +1,25 @@
 html, body{
     height: 100%;
     overflow-x: hidden;
+    display: block;
 }
 body {
     perspective: 6px;
     perspective-origin: 50% 160px;
+}
+.palavras-home{
+    animation: aparece 2s;
+}
+.banner-twitter{
+    animation: aparece .5s;
+    animation-delay: 2s;
+    animation-fill-mode: backwards;
+}
+@keyframes aparece{
+    from{
+        opacity: 0;
+        transform: scale(0.001);
+    }
 }
 .palavras-home, .titulo-principal {
     transform-style: preserve-3d;
@@ -39,6 +54,21 @@ body {
     font-size: 4em;
     display: inline-block;
     transform: rotate(-5deg) skew(-10deg);
+    position: relative;
+    animation: flutue 1s infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+.saudacao:hover em{
+    animation-play-state: paused;
+}
+@keyframes flutue{
+    from{
+        top: -5px;
+    }
+    to{
+        top: 5px;
+    }
 }
 .banner-twitter{
     width: 14em;
@@ -163,6 +193,13 @@ body {
     text-align: center;
     margin: 2em auto;
     padding: .5em;
+    text-decoration: none;
+    transition: .5s;
+}
+.botao-index:hover, .botao-index:focus{
+    box-shadow: 0 0 1em #FA9;
+    color: white;
+    background-color: #C54974;
 }
 .secao-inicio{
     padding: 2em;
@@ -192,12 +229,21 @@ body {
     color: #FFF;
 }
 .trabalhos ul {
-    overflow: hidden;
-    border: .5em solid black;
+    display: flex;
 }
 .trabalhos li {
-    float: left;
-    width: 33.333%;
+    flex: 1;
+    border: .5em solid black;
+}
+.trabalhos li:first-child {
+    order: 2;
+    transform: scale(1.2);
+}
+.trabalhos li:nth-child(2){
+    order: 1;
+}
+.trabalhos li:last-child {
+    order: 3;
 }
 .trabalhos img {
     width: 100%;
