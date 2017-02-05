@@ -1,0 +1,130 @@
+.cabecalhoPrincipal .container{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.cabecalhoPrincipal-nav{
+	display: flex;
+}
+
+.rodapePrincipal-patrocinadores .container{
+	display: flex;
+	justify-content: space-between;
+}
+
+.rodapePrincipal-contatoForm{
+	width: 25%
+}
+
+.rodapePrincipal-patrocinadores-list{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 70%;
+	margin-right: 5%;
+}
+
+.rodapePrincipal-contatoForm-fieldset{
+	display: flex;	
+}
+
+.rodapePrincipal-navMap-list{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 260px;
+}
+
+.conteudoPrincipal-cursos{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.conteudoPrincipal-cursos-link{
+	width: 100%;
+}
+
+.videoSobre .container{
+	display: flex;
+}
+
+.videoSobre .videoSobre-sobre{
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	text-align: center;
+}
+
+.videoSobre .videoSobre-video{
+	flex-grow: 1;
+	flex-shrink: 2;
+}
+
+.videoSobre-sobre-list{
+	flex-grow: 1;
+}
+
+.videoSobre .videoSobre-sobre{
+	flex-grow: 1;
+}
+
+/*mobile*/
+@media not all and (min-width: 769px) {
+	.videoSobre .container{
+		flex-direction: column;
+	}
+
+	.videoSobre .videoSobre-video{
+		margin: 0 auto;
+	}
+
+	.cabecalhoPrincipal-nav{
+		flex-direction: column;
+	}
+
+	.cabecalhoPrincipal .container{
+		flex-direction: column;
+		align-items: initial;
+		text-align: center;
+	}
+
+	.rodapePrincipal-navMap-list{
+		height: auto;
+	}
+
+	.cabecalhoPrincipal-nav-link-app{
+		order: -1;
+	}
+}
+
+@media not all and (min-width: 1000px) {
+	.rodapePrincipal-patrocinadores .container{
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.rodapePrincipal-contatoForm{
+		width: 100%;
+	}
+
+	.rodapePrincipal-contatoForm-fieldset{
+		justify-content: center;
+	}
+
+	.rodapePrincipal-patrocinadores-list{
+		width: 100%;
+		margin-right: 0;
+	}
+}
+
+@media(min-width: 769px) {
+	.conteudoPrincipal-cursos-link{
+		width: 32%;
+	}
+}
+@media(min-width: 1000px) {
+	.conteudoPrincipal-cursos-link{
+		width: 23%;
+	}
+}
