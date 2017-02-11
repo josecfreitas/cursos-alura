@@ -20,10 +20,13 @@ function criaPaciente(paciente){
 	}
 }
 
-var pacientes = document.getElementsByClassName("paciente");
-percorreArray(pacientes, function(paciente){
-	pacienteAtual = criaPaciente(paciente);
+function calculaTodosImcs(){
+	var pacientes = document.getElementsByClassName("paciente");
+	percorreArray(pacientes, function(pacienteRow){
+		paciente = criaPaciente(pacienteRow);
 
-	paciente.getElementsByClassName("info-imc")[0].textContent = pacienteAtual.imc();
-	console.log(pacienteAtual.nome);
-});
+		pacienteRow.getElementsByClassName("info-imc")[0].textContent = paciente.imc();
+		console.log(paciente.nome);
+	});
+}
+document.getElementById("calcula-imcs").addEventListener("click", calculaTodosImcs);
