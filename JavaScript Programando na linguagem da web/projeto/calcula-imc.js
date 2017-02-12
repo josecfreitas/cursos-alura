@@ -20,7 +20,7 @@ function criaPaciente(paciente){
 	}
 }
 
-function calculaTodosImcs(){
+document.getElementById("calcula-imcs").addEventListener("click", function(){
 	var pacientes = document.getElementsByClassName("paciente");
 	percorreArray(pacientes, function(pacienteRow){
 		paciente = criaPaciente(pacienteRow);
@@ -28,5 +28,26 @@ function calculaTodosImcs(){
 		pacienteRow.getElementsByClassName("info-imc")[0].textContent = paciente.imc();
 		console.log(paciente.nome);
 	});
-}
-document.getElementById("calcula-imcs").addEventListener("click", calculaTodosImcs);
+});
+
+var tabelaPacientes = document.querySelector("table");
+
+document.querySelector("#adicionar-paciente").addEventListener("click",	function(e){
+	e.preventDefault();
+
+	var campoNome = document.querySelector("#campo-nome");
+	var campoPeso = document.querySelector("#campo-peso");
+	var campoAltura = document.querySelector("#campo-altura");
+
+	tabelaPacientes.innerHTML = tabelaPacientes.innerHTML + 
+								"<tr class='paciente'>" +
+									"<td class='info-nome'>"+ campoNome.value +"</td>" +
+									"<td class='info-peso'>"+ campoPeso.value +"</td>" +
+									"<td class='info-altura'>"+ campoAltura.value +"</td>" +
+									"<td class='info-imc'>"+campoPeso.value/(campoAltura.value*campoAltura.value)+"</td>" +
+								"</tr>";
+
+	campoNome.value = "";
+	campoPeso.value = "";
+	campoAltura.value = "";
+});
