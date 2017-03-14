@@ -27,4 +27,11 @@ public class ProdutoDAO {
     public List<Produto> listar() {
         return manager.createQuery(" from Produto", Produto.class).getResultList();
     }
+
+    public Produto find(int id) {
+        return manager.createQuery("Select p from Produto p join fetch p.precos "
+                + "where p.id = :id", Produto.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
 }
