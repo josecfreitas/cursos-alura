@@ -29,19 +29,17 @@ public class PagamentoController {
     RestTemplate restTemplate;
 
     @RequestMapping(value = "/finalizar", method = RequestMethod.POST)
-    public Callable<ModelAndView> finalizar(RedirectAttributes redirectAttributes) {
+    public Callable<ModelAndView> finalizar(RedirectAttributes model) {
         return () -> {
             try {
-                String url = "http://book-payment.herokuapp.com/payment";
-                String response = restTemplate.postForObject(url, new DadosPagamento(carrinho.getTotal()), String.class);
-                System.out.println(carrinho.getTotal());
-
-                redirectAttributes.addFlashAttribute("msg", response);
-
+                String uri = "http://book-payment.herokuapp.com/payment";
+                String response = restTemplate.postForObject(uri, new DadosPagamento(carrinho.getTotal()), String.class);
+                model.addFlashAttribute("message", response);
+                System.out.println(response);
                 return new ModelAndView("redirect:/produtos");
             } catch (HttpClientErrorException e) {
                 e.printStackTrace();
-                redirectAttributes.addFlashAttribute("msg", "Valor maior que o permitido");
+                model.addFlashAttribute("message", "Valor maior que o permitido");
                 return new ModelAndView("redirect:/produtos");
             }
         };
