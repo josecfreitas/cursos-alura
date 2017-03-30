@@ -2,7 +2,6 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,6 +39,8 @@
         <link href="${contextPath}resources/css/produtos.css" 
               rel="stylesheet" type="text/css"  media="all"  />
         <link rel="canonical" href="http://www.casadocodigo.com.br/" />	
+        <link href="${contextPath}resources/css/book-collection.css"
+              rel="stylesheet" type="text/css" media="all" />
     </head>
     <body>
 
@@ -51,7 +52,7 @@
                     <nav id="main-nav">
 
                         <ul class="clearfix">
-                            <li><a href="${s:mvcUrl('CCC#itens').build()}" rel="nofollow">Carrinho (${carrinhoCompras.quantidade})</a></li>
+                            <li><a href="/cart" rel="nofollow">Carrinho</a></li>
 
                             <li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre Nós</a></li>
 
@@ -80,73 +81,71 @@
             </ul>
         </nav>
 
-        <section class="container middle">
-            <h2 id="cart-title">Seu carrinho de compras</h2>
 
+        <section id="index-section" class="container middle">
 
-            <table id="cart-table">
-                <colgroup>
-                    <col class="item-col"/>
-                    <col class="item-price-col"/>
-                    <col class="item-quantity-col"/>
-                    <col class="line-price-col"/>
-                    <col class="delete-col"/>
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th class="cart-img-col"></th>
-                        <th width="65%">Item</th>
-                        <th width="10%">Preço</th>
-                        <th width="10%">Quantidade</th>
-                        <th width="10%">Total</th>
-                        <th width="5%"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${carrinhoCompras.itens}" var="item">
-                        <tr>
-                            <td class="cart-img-col"><img src="http://cdn.shopify.com/s/files/1/0155/7645/products/css-eficiente-featured_large.png?v=1435245145" width="71px" height="100px"/></td>
-                            <td class="item-title">item.produto.titulo</td>
-                            <td class="numeric-cell">R$ ${item.preco}</td>
-                            <td class="quantity-input-cell"><input type="number" min=" 0" readonly="readonly" name="quantidade" value="${carrinhoCompras.getQuantidade(item)}"/></td>
-                            <td class="numeric-cell">R$ ${carrinhoCompras.getTotal(item)}</td>
-                            <td class="remove-item"><a href="/cart/change?218748921802387812&quantity=0"><img src="${contextPath }resources/imagens/excluir.png" alt="Excluir" title="Excluir" /></a></td>
-                        </tr>
+            <h1 class="cdc-call">Últimos dias com os preços promocionais. Aproveite!</h1>
+            <ul class="clearfix book-collection">
+
+                <!-- Aqui você fará a repetição -->
+                <c:forEach items="${produtos}" var="p">
+                    <li><a href="${s:mvcUrl('PC#detalheProduto').arg(0, p.id).build()}" class="block clearfix">
+                            <h2 class="product-title">${p.titulo}</h2>
+                            <img width="143"
+                                 height="202"
+                                 src="https://cdn.shopify.com/s/files/1/0155/7645/products/java8-featured_large.png?v=1411490181"
+                                 alt="Java 8 Prático"
+                                 title="Java 8 Prático"/>
+                            <small class="buy-button">Compre</small>
+                        </a></li>
                     </c:forEach>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3">
-                            <form action="${s:mvcUrl('PC#finalizar').build()}" method="post">
-                                <input type="submit" class="checkout" name="checkout" value="Finalizar compra" />
-                            </form>
-                        </td>
-                        <td class="quantity-input-cell"><input type="submit" class="update-cart" disabled="disabled" name="update" value=""/></td>
-                        <td class="numeric-cell">R$ ${carrinhoCompras.total}</td><td></td>
-                    </tr>
-                </tfoot>
-            </table>
+                <!-- Fechando aqui -->
 
-            <h2>Você já conhece os outros livros da Casa do Código?</h2>
-            <ul id="collection" class="related-books">          
-                <li class="col-left">
-                    <a href="/products/livro-plsql" class="block clearfix book-suggest" data-book="PL/SQL: Domine a linguagem do banco de dados Oracle">
-                        <img width="113px" height="160px" src="http:////cdn.shopify.com/s/files/1/0155/7645/products/plsql-featured_compact.png?v=1434740236" alt="PL/SQL: Domine a linguagem do banco de dados Oracle"/>
-                    </a>
-                </li>          
             </ul>
 
-            <h2><a href="http://www.casadocodigo.com.br">Veja todos os livros que publicamos!</a></h2>
-        </section> 
+            <h2 class="cdc-call">Diferenciais da Casa do Código</h2>
 
+            <ul id="cdc-diferenciais" class="clearfix">
+                <li class="col-left">
+                    <h3>E-books sem DRM. Leia onde quiser</h3>
+                    <p>
+                        <span class="sprite" id="sprite-drm"></span> Nossos e-books não
+                        possuem DRM, ou seja, você pode ler em qualquer computador, tablet
+                        e smartphone.
+                    </p>
+                </li>
+                <li class="col-right">
+                    <h3>Autores de renome na comunidade</h3>
+                    <p>
+                        <span class="sprite" id="sprite-renome"></span> Autores que
+                        participam ativamente na comunidade com Open Source, listas de
+                        discussão, grupos e mais.
+                    </p>
+                </li>
+                <li class="col-left">
+                    <h3>Receba atualizações dos e-books</h3>
+                    <p>
+                        <span class="sprite" id="sprite-atualizacoes"></span> Quando você
+                        compra um e-book, automaticamente tem direito às atualizações e
+                        correções dele.
+                    </p>
+                </li>
+                <li class="col-right">
+                    <h3>Livros com curadoria da Caelum</h3>
+                    <p>
+                        <span class="sprite" id="sprite-caelum"></span> Desenvolvedores
+                        experientes que avaliam e revisam os livros constantemente.
+                    </p>
+                </li>
+            </ul>
+
+
+
+        </section>
 
 
         <footer id="layout-footer">
             <div class="clearfix container">
-
-
-
-
                 <div id="collections-footer">
                     <!-- cdc-footer -->
                     <p class="footer-title">Coleções de Programação</p>
@@ -220,5 +219,7 @@
                 </div>
             </div>
         </footer>
+
     </body>
 </html>
+
