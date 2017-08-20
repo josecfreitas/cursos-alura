@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso de jquery</title>
+
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<h2>Geral</h2>
+	<a href="" id="esconde-propagandas" class="alterna-propaganda">Esconder Propagandas</a>
+	<a href="" id="mostra-propagandas" class="alterna-propaganda">Mostrar Propagandas</a>
+	<div class="carrinho">
+		<h2>Carrinho entrega em Sao Paulo</h2>
+		<table>
+			<thead>
+				<tr>
+					<td></td>
+					<td>Nome</td>
+					<td>Quantidade</td>
+					<td>Valor</td>
+					<td>Total</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><img src="imagens/tablet.jpg"></td>
+					<td>Tablet miPad 18</td>
+					<td class="item-qtde">1</td>
+					<td>499.99</td>
+					<td class="item-total">499.99</td>
+					<td><a href="" class="remove-item">(Remover)</a></td>
+				</tr>
+				<tr>
+					<td><img src="imagens/telefone.png"></td>
+					<td>Telefone miPhone 18</td>
+					<td class="item-qtde">2</td>
+					<td>199.99</td>
+					<td class="item-total">399.98</td>
+					<td><a href="" class="remove-item">(Remover)</a></td>
+				</tr>
+				<tr>
+					<td><img src="imagens/sapato.jpg"></td>
+					<td>Sapato</td>
+					<td class="item-qtde">1</td>
+					<td>99.99</td>
+					<td class="item-total">99.99</td>
+					<td><a href="" class="remove-item">(Remover)</a></td>
+				</tr>
+				<tr>
+					<td><img src="imagens/monitor.jpg"></td>
+					<td>Monitor Sam 21</td>
+					<td class="item-qtde">1</td>
+					<td>299.00</td>
+					<td class="item-total">299.00</td>
+					<td><a href="" class="remove-item">(Remover)</a></td>
+				</tr>
+				<tr>
+					<td><img src="imagens/teclado.jpg"></td>
+					<td>Teclado com fio preto </td>
+					<td class="item-qtde">1</td>
+					<td>100.00</td>
+					<td class="item-total">100.00</td>
+					<td><a href="" class="remove-item">(Remover)</a></td>
+				</tr>
+				<tr>
+					<td><img src="imagens/mouse.jpg"></td>
+					<td>Mouse wireless</td>
+					<td class="item-qtde">1</td>
+					<td>199.00</td>
+					<td class="item-total">199.00</td>
+					<td><a href="" class="remove-item">(Remover)</a></td>
+				</tr>
+				<tr>
+					<td><img src="imagens/camiseta.jpg"></td>
+					<td>Camiseta G</td>
+					<td class="item-qtde">1</td>
+					<td>25.00</td>
+					<td class="item-total">25.00</td>
+					<td><a href="" class="remove-item">(Remover)</a></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="5">
+						<div>
+							<input type="button" value="Undo" class="undo">
+						</div>
+						Valor total: <span class="total"></span>
+						<br>
+						Valor total: <span class="qtdeTotal"></span>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+
+	</div>
+
+	<div class="carrinho">
+		<h2>Carrinho entrega em Sao Paulo</h2>
+		<table>
+			<thead>
+				<tr>
+					<td></td>
+					<td>Nome</td>
+					<td>Quantidade</td>
+					<td>Valor</td>
+					<td>Total</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><img src="imagens/tablet.jpg"></td>
+					<td>Tablet miPad 18</td>
+					<td class="item-qtde">1</td>
+					<td>499.99</td>
+					<td class="item-total">499.99</td>
+					<td><a href="" class="remove-item">(Remover)</a></td>
+				</tr>
+				<tr>
+					<td><img src="imagens/telefone.png"></td>
+					<td>Telefone miPhone 18</td>
+					<td class="item-qtde">2</td>
+					<td>199.99</td>
+					<td class="item-total">399.98</td>
+					<td><a href="" class="remove-item">(Remover)</a></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="5">
+						<div>
+							<input type="button" value="Undo" class="undo">
+						</div>
+						Valor total: <span class="total"></span>
+						<br>
+						Valor total: <span class="qtdeTotal"></span>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>
