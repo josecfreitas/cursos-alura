@@ -10,7 +10,7 @@ document.querySelector("#tabela-pacientes").querySelectorAll(".paciente").forEac
 	var alturaEhValida = true;
 	var pesoEhValido = true;
 
-	if(peso <= 0 || peso > 1000){
+	if(!validaPeso(peso)){
 		console.log("Peso inválido");
 		tdImc.textContent = "Peso inválido!";
 
@@ -20,7 +20,7 @@ document.querySelector("#tabela-pacientes").querySelectorAll(".paciente").forEac
 
 		pesoEhValido = false;
 	}
-	if(altura <= 0 || altura >= 3){
+	if(!validaAltura(altura)){
 		console.log("Altura inválida");
 		tdImc.textContent = "Altura inválida!";
 
@@ -38,4 +38,12 @@ document.querySelector("#tabela-pacientes").querySelectorAll(".paciente").forEac
 
 function calculaImc(peso, altura){
 	return (peso / (altura * altura)).toFixed(2);
+}
+
+function validaPeso(peso) {
+	return peso >= 0 && peso < 1000;
+}
+
+function validaAltura(altura) {
+	return altura >= 0 && altura < 3;
 }
