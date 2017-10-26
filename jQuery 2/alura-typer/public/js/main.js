@@ -1,5 +1,6 @@
 let campoDigitacao = $(".campo-digitacao");
 let tempoInicial = $("#cronometro").text();
+let frase = $(".frase").text();
 
 $(function(){
 	atualizaTamanhoFrase();
@@ -7,6 +8,7 @@ $(function(){
 	inicializaCronometro();
 
 	$("#botao-reiniciar").click(reiniciarJogo);
+	campoDigitacao.on("input", validaDigitacao);
 });
 
 function atualizaTamanhoFrase(){
@@ -36,9 +38,10 @@ function inicializaCronometro(){
 			$("#cronometro").text(tempoRestante);
 
 			if(tempoRestante < 1){
-				$(".campo-digitacao").prop("disabled", true);
+				campoDigitacao.prop("disabled", true);
 				clearInterval(cronometroID);
 				$("#botao-reiniciar").prop("disabled", false);
+				campoDigitacao.addClass("campo-desativado");
 			}
 		}, 1000);
 	});
@@ -51,7 +54,20 @@ function reiniciarJogo(){
 
 	campoDigitacao.attr("disabled", false);
 	campoDigitacao.val("");
-	campoDigitacao.focus();
+	campoDigitacao.removeClass("campo-desativado");
 
+	campoDigitacao.removeClass("texto-invalido");
+	campoDigitacao.removeClass("texto-valido");
+}
 
+function validaDigitacao(){
+	let digitado = campoDigitacao.val();
+
+	if(frase.startsWith(digitado)){
+		campoDigitacao.addClass("texto-valido");
+		campoDigitacao.removeClass("texto-invalido");
+	} else {
+		campoDigitacao.addClass("texto-invalido");
+		campoDigitacao.removeClass("texto-valido");
+	}
 }
