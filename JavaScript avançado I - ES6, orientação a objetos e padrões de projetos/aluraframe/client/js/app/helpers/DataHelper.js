@@ -2,7 +2,7 @@ class DataHelper{
 
 	constructor(){
 
-		throw "Essa classe não pode ser instanciada."
+		throw new Error("Essa classe não pode ser instanciada.");
 	}
 
 	static textoParaData(texto){

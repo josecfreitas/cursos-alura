@@ -1,5 +1,10 @@
 class NegociacoesView extends View {
 
+	constructor(elemento) {
+
+		super(elemento);
+	}
+
 	template(model){
 
 		return `
@@ -14,14 +19,15 @@ class NegociacoesView extends View {
 		        </thead>
 		        
 		        <tbody>
-		        	${model.negociacoes.map(i => 
-		        		`
+		        	${model.negociacoes.map(i => `
+
 		        			<tr>
 		        				<td>${DataHelper.dataParaTexto(i.data)}</td>
 		        				<td>${i.quantidade}</td>
 		        				<td>${i.valor}</td>
 		        				<td>${i.volume}</td>
 		        			</tr>
+
 		        		`).join('')}
 		        </tbody>
 		        
