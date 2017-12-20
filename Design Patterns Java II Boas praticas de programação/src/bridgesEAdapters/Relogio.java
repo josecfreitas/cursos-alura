@@ -1,0 +1,8 @@
+package bridgesEAdapters;
+
+import java.util.Calendar;
+
+public interface Relogio {
+
+	public Calendar hoje();
+}

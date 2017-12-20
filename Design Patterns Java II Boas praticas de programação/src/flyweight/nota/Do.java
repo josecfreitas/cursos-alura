@@ -1,0 +1,10 @@
+package flyweight.nota;
+
+public class Do implements Nota {
+
+	@Override
+	public String simbolo() {
+		return "C";
+	}
+
+}
