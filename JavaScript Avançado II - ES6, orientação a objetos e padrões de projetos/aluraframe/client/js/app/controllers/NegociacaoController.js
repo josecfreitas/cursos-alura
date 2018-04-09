@@ -11,6 +11,20 @@ class NegociacaoController{
 		this._listaNegociacoes = new ListaNegociacoes(model => 
 			this._negociacoesView.update(model)
 			);
+
+		this._listaNegociacoes = new Proxy(new ListaNegociacoes(), {
+
+			get(target, prop, receiver) {
+				console.log("ARMADILHA");
+				console.log(target);
+				console.log(prop);
+				console.log(receiver);
+
+				this._negociacoesView.update(model);
+				return Reflect.get(target, prop, receiver);
+			}
+		});
+
 		this._negociacoesView = new NegociacoesView($('#negociacoes'));
 		this._negociacoesView.update(this._listaNegociacoes);
 

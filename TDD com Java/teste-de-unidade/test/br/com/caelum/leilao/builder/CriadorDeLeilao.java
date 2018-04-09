@@ -14,12 +14,6 @@ public class CriadorDeLeilao {
 		return this;
 	}
 
-	public CriadorDeLeilao lance(Lance lance) {
-		leilao.propoe(lance);
-		
-		return this;
-	}
-
 	public CriadorDeLeilao lance(Usuario usuario, double valor) {
 		leilao.propoe(new Lance(usuario, valor));
 		

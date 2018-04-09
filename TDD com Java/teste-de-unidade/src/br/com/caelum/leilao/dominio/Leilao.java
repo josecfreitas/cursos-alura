@@ -15,8 +15,14 @@ public class Leilao {
 	}
 
 	public void propoe(Lance lance) {
+		verificaSeLanceEhValido(lance);
+		
 		if (lances.isEmpty() || podeProporLance(lance.getUsuario()))
 			lances.add(lance);
+	}
+
+	private void verificaSeLanceEhValido(Lance lance) {
+		if(lance.getValor() <= 0) throw new IllegalArgumentException();
 	}
 
 	private boolean podeProporLance(Usuario usuario) {

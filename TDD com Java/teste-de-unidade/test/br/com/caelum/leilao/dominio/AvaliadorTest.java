@@ -143,16 +143,11 @@ public class AvaliadorTest {
 		assertEquals(450.0, tresMaioresLances.get(0).getValor(), 0.0001);
 		assertEquals(200.0, tresMaioresLances.get(1).getValor(), 0.0001);
 	}
-
-	@Test
-	public void testaEncontrarMaioresLancesEmVazia() {
-		// #1 - Cenário
-		Leilao leilao = new Leilao("Leilão de testes");
-
+	
+	@Test(expected = RuntimeException.class)
+	public void naoDeveAvaliarLeilaoSemLance() {
+		Leilao leilao = new Leilao("Leilão sem lance");
+		
 		avaliador.avalia(leilao);
-
-		// #3 - Validação
-		List<Lance> tresMaioresLances = avaliador.getTresMaiores();
-		assertEquals(0, tresMaioresLances.size());
 	}
 }

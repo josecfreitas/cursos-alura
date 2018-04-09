@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Assert;
 import org.junit.Test;
 
+import br.com.caelum.leilao.builder.CriadorDeLeilao;
+
 public class LeilaoTest {
 
 	@Test
@@ -121,5 +123,23 @@ public class LeilaoTest {
 		assertEquals(10, leilao.getLances().size());
 		assertEquals(18000.0, leilao.getLances().get(8).getValor(), 0.00001);
 		assertEquals(19000.0, leilao.getLances().get(9).getValor(), 0.00001);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void naoDeveAceitarValorMenorQue0() {
+		Usuario joseCarlos = new Usuario("José Carlos");
+		
+		Leilao leilao = new CriadorDeLeilao().para("Teste de lance negativo")
+				.lance(joseCarlos, -1000.0)
+				.constroi();
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void naoDeveAceitarValorIgualA0() {
+		Usuario joseCarlos = new Usuario("José Carlos");
+		
+		Leilao leilao = new CriadorDeLeilao().para("Teste de lance negativo")
+				.lance(joseCarlos, 0)
+				.constroi();
 	}
 }
