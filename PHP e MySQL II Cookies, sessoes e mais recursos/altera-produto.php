@@ -1,7 +1,6 @@
 <?php 
-include("estrutura/cabecalho.php");
-include("conecta.php");
-include("produtoDAO.php");
+require_once("estrutura/cabecalho.php");
+require_once("produtoDAO.php");
 
 $id = $_POST["id"];
 $nome = $_POST["nome"];
@@ -25,4 +24,4 @@ if(alteraProduto($conexao, $id, $nome, $valor, $decricao, $categoria_id, $usado)
 	<?php
 }
 ?>
-<?php include 'estrutura/rodape.php';?>
+<?php require_once('estrutura/rodape.php');?>

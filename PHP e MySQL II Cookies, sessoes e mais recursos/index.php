@@ -1,6 +1,6 @@
 <?php 
-include 'estrutura/cabecalho.php';
-include 'logica-usuario.php';
+require_once('estrutura/cabecalho.php');
+require_once('logica-usuario.php');
 ?>
 
 <div class="container">
@@ -9,32 +9,9 @@ include 'logica-usuario.php';
 	
 	<h2>Login</h2>
 
-
-	<?php
-	if(isset($_GET["logout"]) && $_GET["logout"] == true) {
-	?>
-		<p class="alert alert-success">Usuário deslogado com sucesso!</p>
-	<?php
-	}
-	if(isset($_GET["logado"]) && $_GET["logado"] == true) {
-	?>
-		<p class="alert alert-success">Usuário logado com sucesso!</p>
-	<?php
-	}
-	if(isset($_GET["logado"]) && $_GET["logado"] == false) {
-	?>
-		<p class="alert alert-danger">Erro no login!</p>
-	<?php }
-
-	if(isset($_GET["falhaDeSegurança"]) && $_GET["falhaDeSegurança"] == true) {
-	?>
-		<p class="alert alert-danger">Apenas usuários logados tem acesso à essa funcionalidade!</p>
-	<?php } ?>
-
-
 	<?php if(usuarioEstaLogado()) { ?>
 		<p class="text-success">
-			Você está logado como <?=$_COOKIE["usuario_logado"]?>.
+			Você está logado como <?=$_SESSION["usuario_logado"]?>.
 			<a href="logout.php">Deslogar</a>
 				
 			</p>
@@ -54,4 +31,4 @@ include 'logica-usuario.php';
 	
 </div>
 
-<?php include 'estrutura/rodape.php'; ?>
+<?php require_once('estrutura/rodape.php'); ?>

@@ -1,3 +1,8 @@
+<?php
+error_reporting(E_ALL ^ E_NOTICE);
+include 'mensagem.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,4 +31,8 @@
     </div>
 
 	<div class="container">
-		<div class="principal">
+		<div class="principal">            
+            <?php
+            mostraAlerta("success");
+            mostraAlerta("danger");
+            ?>

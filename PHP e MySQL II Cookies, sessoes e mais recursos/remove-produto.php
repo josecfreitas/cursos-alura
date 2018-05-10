@@ -1,6 +1,5 @@
 <?php
-include("conecta.php");
-include("produtoDAO.php");
+require_once("produtoDAO.php");
 
 $id=$_POST['id'];
 

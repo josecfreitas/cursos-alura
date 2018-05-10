@@ -1,8 +1,7 @@
 <?php 
-include("estrutura/cabecalho.php");
-include("conecta.php");
-include("produtoDAO.php");
-include 'logica-usuario.php';
+require_once("estrutura/cabecalho.php");
+require_once("produtoDAO.php");
+require_once('logica-usuario.php');
 
 verificaUsuario();
 
@@ -27,4 +26,4 @@ if(insereProduto($conexao, $nome, $valor, $decricao, $categoria_id, $usado)){
 	<?php
 }
 ?>
-<?php include 'estrutura/rodape.php';?>
+<?php require_once('estrutura/rodape.php');?>

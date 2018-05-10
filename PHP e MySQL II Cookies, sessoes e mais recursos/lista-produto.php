@@ -1,7 +1,6 @@
 <?php 
-include("estrutura/cabecalho.php");
-include("conecta.php");
-include("produtoDAO.php");
+require_once("estrutura/cabecalho.php");
+require_once("produtoDAO.php");
 
 $produtos = listaProdutos($conexao);
 if(array_key_exists("removido", $_GET) && $_GET['removido']=='true') :
@@ -32,4 +31,4 @@ if(array_key_exists("removido", $_GET) && $_GET['removido']=='true') :
 	?>
 </table>
 
-<?php include 'estrutura/rodape.php';?>
+<?php require_once('estrutura/rodape.php');?>

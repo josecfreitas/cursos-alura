@@ -1,4 +1,7 @@
 <?php
+
+include("conecta.php");
+
 function insereProduto($conexao, $nome, $valor, $descricao, $categoria_id, $usado){
 	$query = "insert into produtos (nome, preco, descricao, categoria_id, usado) values ('{$nome}', {$valor}, '{$descricao}', {$categoria_id}, {$usado});";
 	return mysqli_query($conexao, $query);
