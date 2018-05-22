@@ -1,0 +1,14 @@
+body {
+    padding-top: 50px;
+}
+
+.principal {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+form.login {
+	text-align: left;
+	max-width: 50ch;
+	margin: 0 auto;
+}
