@@ -35,23 +35,27 @@ class Categoria
             return $this;
         }
 
-        $query = "SELECT id, nome FROM categorias WHERE id = $this->id";
+        $query = "SELECT id, nome FROM categorias WHERE id = :id";
+
         $conexao = Conexao::getInstance();
-        $resultado = $conexao->query($query);
-        $lista = $resultado->fetchAll();
 
-        foreach ($lista as $linha) {
-            $this->nome = $linha['nome'];
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':id', $this->id);
+        $stmt->execute();
+        $row = $stmt->fetchObject();
 
-            return $this;
-        }
+        $this->nome = $row->nome;
+
+        return $this;
     }
 
     public function inserir()
     {
-        $query = "INSERT INTO categorias (nome) VALUES ('$this->nome');";
+        $query = "INSERT INTO categorias (nome) VALUES (:nome);";
         $conexao = Conexao::getInstance();
-        $conexao->exec($query);
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':nome', $this->nome);
+        $stmt->execute();
     }
 
     public function atualizar()
