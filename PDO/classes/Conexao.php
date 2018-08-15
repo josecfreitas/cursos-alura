@@ -1,8 +1,14 @@
 <?php
 
+require_once "global.php";
+
 class Conexao {
 
     public static function getInstance() {
-        return new PDO('pgsql:host=127.0.0.1;dbname=pdo', 'postgres', 'bicrement');
+        $conexao = new PDO(DB_DRIVE . ':host=' . DB_HOSTNAME . ';dbname=' . DB_DATABASE, DB_USERNAME, DB_PASSWORD);
+
+        $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        return $conexao;
     }
 }
