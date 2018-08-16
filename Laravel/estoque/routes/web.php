@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "teste";
 });
+
+Route::get('/produtos', "ProdutoController@gerenciar");
+Route::get('/produtos/visualizar/{id}', "ProdutoController@visualizar");
+Route::get('/produtos/novo', "ProdutoController@novo");
+Route::post('/produtos/novo', "ProdutoController@salvar");
