@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use estoque\Categoria;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(CategoriaTableSeeder::class);
+    }
+}
+
+class CategoriaTableSeeder extends Seeder
+{
+    public function run() {
+        Categoria::create(['nome' => "Eletrodomestico"]);
+        Categoria::create(['nome' => "Eletronica"]);
+        Categoria::create(['nome' => "Brinquedo"]);
+        Categoria::create(['nome' => "Esportes"]);
     }
 }

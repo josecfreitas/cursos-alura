@@ -2,50 +2,60 @@
 
 namespace estoque\Http\Controllers;
 
-use DB;
-use Request;
+use estoque\Produto;
+use Illuminate\Support\Facades\Request;
+use estoque\Http\Requests\ProdutoRequest;
+use estoque\Categoria;
 
 class ProdutoController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function gerenciar()
     {
-        $produtos = DB::select("SELECT * FROM produtos");
+        $produtos = Produto::all();
 
         return view("produtos/gerenciar")
             ->with("produtos", $produtos);
     }
 
-    public function visualizar()
+    public function visualizar($id)
     {
-        $id = Request::route('id');
-        $produto = DB::select("SELECT * FROM produtos WHERE id = ?", [$id]);
+        $produto = Produto::find($id);
 
-        if (empty($produto)) abort(404);
+        if (is_null($produto)) abort(404);
 
         return view("produtos/visualizar")
-            ->with("produto", $produto[0]);
+            ->with("produto", $produto);
     }
 
     public function novo()
     {
-        return view("produtos/novo");
+        return view("produtos/novo")
+            ->with("categorias", Categoria::all());
     }
 
-    public function salvar()
+    public function salvar(ProdutoRequest $request)
     {
-        $nome = Request::input("nome");
-        $valor = Request::input("valor");
-        $descricao = Request::input("descricao");
-        $quantidade = Request::input("quantidade");
-
-        DB::insert(
-            "INSERT INTO produtos (nome, valor, descricao, quantidade) VALUES (?, ?, ?, ?)",
-            array($nome, $valor, $descricao, $quantidade)
-        );
+        Produto::create($request->all());
 
         return redirect()
             ->action("ProdutoController@gerenciar")
             ->withInput(Request::only('nome'));
+    }
+
+    public function remover($id)
+    {
+        $produto = Produto::find($id);
+
+        if (is_null($produto)) abort(404);
+
+        $produto->delete();
+
+        return redirect()
+            ->action("ProdutoController@gerenciar");
     }
 }

@@ -13,18 +13,25 @@
             <th></th>
             <th>Nome</th>
             <th>Valor</th>
+            <th>Categoria</th>
             <th>Descrição</th>
             <th>Quantidade</th>
+            <th>Tamanho</th>
         </thead>
 
         <tbody>
             @forelse ($produtos as $produto)
                 <tr class="{{$produto->quantidade < 3 ? 'table-danger' : ''}}">
-                    <td><a href="{{ action('ProdutoController@visualizar', array('id' => $produto->id)) }}"><i class="fas fa-search"></i></a></td>
+                    <td>
+                        <a href="{{ action('ProdutoController@visualizar', array('id' => $produto->id)) }}"><i class="fas fa-search"></i></a>
+                        <a href="{{ action('ProdutoController@remover', array('id' => $produto->id)) }}"><i class="fas fa-trash"></i></a>
+                    </td>
                     <td>{{$produto->nome}}</td>
                     <td>{{$produto->valor}}</td>
+                    <td>{{$produto->categoria->nome}}</td>
                     <td>{{$produto->descricao or "Sem descrição"}}</td>
                     <td>{{$produto->quantidade}}</td>
+                    <td>{{$produto->tamanho}}</td>
                 </tr>
             @empty
                 <tr>

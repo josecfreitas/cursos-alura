@@ -15,7 +15,15 @@ Route::get('/', function () {
     return "teste";
 });
 
+Route::get('/login', "LoginController@form");
+Route::post('/login', "LoginController@login");
+
 Route::get('/produtos', "ProdutoController@gerenciar");
-Route::get('/produtos/visualizar/{id}', "ProdutoController@visualizar");
 Route::get('/produtos/novo', "ProdutoController@novo");
 Route::post('/produtos/novo', "ProdutoController@salvar");
+Route::get('/produtos/{id}', "ProdutoController@visualizar");
+Route::get('/produtos/{id}/remover', "ProdutoController@remover");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
