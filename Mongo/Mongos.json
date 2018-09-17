@@ -1,0 +1,132 @@
+// Cria uma coleção
+
+db.createCollection("alunos");
+
+//Insere alunos
+//José
+db.alunos.insert(
+    {
+        "nome": "José Carlos",
+        "data_nascimento": new Date([1995,07,18])
+    }
+);
+//Felipe
+db.alunos.insert(
+    {
+        "nome": "Felipe",
+        "data_nascimento": new Date([1994,02,26]),
+        "notas": [10, 9, 4.5],
+        "curso": {
+            "nome": "Sistema de informações"
+        },
+        "habilidades": {
+            "nome": "Inglês",
+            "nivel": "Avançado"
+        }
+    }
+);
+//Paulo
+db.alunos.insert(
+    {
+        "nome": "Paulo",
+        "data_nascimento": new Date([1979,12,31]),
+        "notas": [10, 9, 7],
+        "curso": {
+            "nome": "Ciência da computação"
+        },
+        "habilidades": [
+            {
+                "nome": "Inglês",
+                "nivel": "Avançado"
+            },
+            {
+                "nome": "Francês",
+                "nivel": "Avançado"
+            }
+        ]
+    }
+);
+//Daniela
+db.alunos.insert(
+    {
+        "nome": "Daniela",
+        "data_nascimento": new Date([1995,07,17]),
+        "notas": [10, 9, 7],
+        "curso": {
+            "nome": "Moda"
+        },
+        "habilidades": [{
+            "nome": "Alemão",
+            "nivel": "Básico"
+        }]
+    }
+);
+
+//Listar todos os alunos
+db.alunos.find();
+
+//Remover aluno
+db.alunos.remove("5b9f309d6ccd86a6afb450bd")
+
+db.alunos.remove(
+    {
+        "_id" : ObjectId("5b9ff751ce9225e9445f808e")
+    }
+)
+
+//Listar formatado
+db.alunos.find().pretty()
+
+//Encontrar o paulo
+db.alunos.find(
+    {"nome": "Paulo"}
+).pretty()
+
+//Alunos que manjam de ingles
+db.alunos.find({
+    "habilidades.nome" : "Inglês"
+});
+
+//Or
+db.alunos.find({
+    "nome": "Daniela",
+    $or: [
+        { "curso.nome" : "Sistema de informações" },
+        { "curso.nome" : "Moda" }
+    ]
+})
+
+//In
+db.alunos.find({
+    "curso.nome": {
+        $in: ["Sistema de informações", "Moda" ]
+    }
+})
+
+//Update
+db.alunos.update(
+    { "_id" : ObjectId("5b9ff760ce9225e9445f8091") },
+    {
+        $set : {
+            "curso.nome": "Moda"
+        }
+    },
+    { "multi": true }
+)
+
+//Array
+db.alunos.update(
+    {"nome":"Paulo"},
+    {
+        $push:{
+            "notas": {
+                $each:[8.5, 10]
+            }
+        }
+    }
+)
+
+//Maior que
+db.alunos.findOne(
+    {"notas": {$gt: 5 }}
+)
