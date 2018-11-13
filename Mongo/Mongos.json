@@ -130,3 +130,6 @@ db.alunos.update(
 db.alunos.findOne(
     {"notas": {$gt: 5 }}
 )
+
+//Ordenar
+db.alunos.find().sort({"nome": 1}).limit(2)
